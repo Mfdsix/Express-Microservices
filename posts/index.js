@@ -1,8 +1,11 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const { randomBytes } = require("crypto")
+const cors = require("cors")
 
 const app = express()
+app.use(bodyParser.json())
+app.use(cors())
 const port = 4000
 
 const posts = []
@@ -20,7 +23,7 @@ app.post('/posts', (req, res) => {
         id, title
     })
 
-    res.status(201).send(posts[id])
+    res.status(201).send(posts[posts.length-1])
 })
 
 app.listen(port, () => {
