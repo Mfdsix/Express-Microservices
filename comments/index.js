@@ -41,7 +41,6 @@ app.post('/events', (req, res) => {
 
     if(type == "CommentModerated"){
         const index = comments.findIndex((comment) => comment.id == data.id)
-        console.log(index)
         if(index){
             comments[index] = data
         }

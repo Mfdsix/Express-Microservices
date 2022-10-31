@@ -1,6 +1,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
+const axios = require("axios")
 
 const app = express()
 app.use(bodyParser.json())
@@ -29,9 +30,9 @@ app.listen(port, () => {
     console.log(`QUERY API SERVICE ${port}`)
     
     axios.get("http://localhost:4005/events")
-    .then((datas) => {
-        if(datas.length){
-            datas.forEach(({type, data}) => handleEvent(type, data))
+    .then((res) => { 
+        if(res.data && res.data.length){
+            res.data.forEach(({type, data}) => handleEvent(type, data))
         }    
     })
     .catch((err) => {
@@ -40,6 +41,7 @@ app.listen(port, () => {
 })
 
 const handleEvent = (type, data) => {
+    console.log("Processing: ", type)
     switch(type){
         case "PostCreated":
         posts.push(data);
@@ -49,7 +51,6 @@ const handleEvent = (type, data) => {
         break;
         case "CommentUpdated":
         const index = comments.findIndex((comment) => comment.id == data.id)
-        console.log(index)
         if(index){
             comments[index] = data
         }

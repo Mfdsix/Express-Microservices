@@ -33,7 +33,6 @@ app.post('/posts', async (req, res) => {
     res.status(201).send(posts[posts.length-1])
 })
 app.post('/events', (req, res) => {
-    console.log("Received Event", req.body)
     res.send({})
 })
 
