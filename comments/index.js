@@ -28,12 +28,16 @@ app.post('/posts/:postId/comments', async(req, res) => {
 
     comments.push(data)
 
-    await axios.post("http://localhost:4005", {
+    await axios.post("http://localhost:4005/events", {
         type: "CommentCreated",
         data: data
     })
 
     res.status(201).send(comments[comments.length-1])
+})
+app.post('/events', (req, res) => {
+    console.log("Received Event", req.body)
+    res.send({})
 })
 
 app.listen(port, () => {
