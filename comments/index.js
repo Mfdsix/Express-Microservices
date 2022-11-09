@@ -45,7 +45,7 @@ app.post('/events', (req, res) => {
             comments[index] = data
         }
 
-        axios.post("http://localhost:4005/events", {
+        axios.post("http://event-bus-service:4005/events", {
             type: "CommentUpdated",
             data
         })
