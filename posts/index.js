@@ -37,5 +37,6 @@ app.post('/events', (req, res) => {
 })
 
 app.listen(port, () => {
+    console.log("updated to version 3")
     console.log(`POST API SERVICE ${port}`)
 })
