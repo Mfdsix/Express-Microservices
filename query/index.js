@@ -29,7 +29,7 @@ app.post('/events', (req, res) => {
 app.listen(port, () => {
     console.log(`QUERY API SERVICE ${port}`)
     
-    axios.get("http://localhost:4005/events")
+    axios.get("http://event-bus-service:4005/events")
     .then((res) => { 
         if(res.data && res.data.length){
             res.data.forEach(({type, data}) => handleEvent(type, data))
