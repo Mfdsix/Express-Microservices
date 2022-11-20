@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: mfdsix/udemy-microservices-client
+          image: mfdsix/udemy-microservices-client-new
 ---
 apiVersion: v1
 kind: Service

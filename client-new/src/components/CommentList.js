@@ -24,10 +24,10 @@ const CommentList = ({ comments }) => {
         return <li key={comment.id}>{comment.content}</li>;
       case "rejected":
         return <li key={comment.id}>
-          <i>This comment include rude words !!!</i>
+          <i className="text-danger">This comment include rude words !!!</i>
         </li>;
       default:
-        return <li key={comment.id}>This comment is still waiting approval</li>;
+        return <li className="text-warning" key={comment.id}>This comment is still waiting approval</li>;
 
     }
   });

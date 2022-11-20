@@ -28,7 +28,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: comments-clusterip-servie
+                name: comments-clusterip-service
                 port:
                   number: 4001
           - path: /?(.*)

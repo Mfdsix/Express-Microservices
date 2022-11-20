@@ -1,11 +1,8 @@
-FROM node:16.18.0-alpine
-
-ENV CI=true
-ENV WDS_SOCKET_PORT=0
+FROM node:alpine
 
 WORKDIR /app
 COPY package.json ./
-RUN npm install
+RUN yarn
 COPY ./ ./
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
