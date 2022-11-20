@@ -51,7 +51,7 @@ const handleEvent = (type, data) => {
         break;
         case "CommentUpdated":
         const index = comments.findIndex((comment) => comment.id == data.id)
-        if(index){
+        if(index >= 0){
             comments[index] = data
         }
         break;

@@ -41,14 +41,14 @@ app.post('/events', (req, res) => {
 
     if(type == "CommentModerated"){
         const index = comments.findIndex((comment) => comment.id == data.id)
-        if(index){
+        if(index >= 0){
             comments[index] = data
+            axios.post("http://event-bus-service:4005/events", {
+                type: "CommentUpdated",
+                data
+            })
         }
 
-        axios.post("http://event-bus-service:4005/events", {
-            type: "CommentUpdated",
-            data
-        })
     }
 })
 
